@@ -48,7 +48,7 @@ public class StatisticsControllerSyncTest {
 				.content(asJsonString(transaction3)));
 		mockMvc.perform(post("/api/transactions").header("Content-Type", "application/json")
 				.content(asJsonString(transaction4)));
-		StatisticsDTO expectedStatisticsDTO = new StatisticsDTO(100.0, 25.0, 40.0, 10.0, 4);
+		StatisticsDTO expectedStatisticsDTO = new StatisticsDTO(115.0, 25.0, 40.0, 10.0, 4);
 		this.mockMvc.perform(get("/api/statistics").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
 				.andExpect(jsonPath("sum", is(expectedStatisticsDTO.getSum())))
 				.andExpect(jsonPath("avg", is(expectedStatisticsDTO.getAvg())))
